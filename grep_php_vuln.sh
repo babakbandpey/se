@@ -1,11 +1,23 @@
-grep -i -r "\$_GET" --color=always -n --include \*.php
-grep -i -r "\$_POST" --color=always -n --include \*.php
-grep -i -r "system" --color=always -n --include \*.php
-grep -i -r "eval" --color=always -n --include \*.php
-grep -i -r "regex" --color=always -n --include \*.php
-grep -i -r "extract" --color=always -n --include \*.php
-grep -i -r "assert" --color=always -n --include \*.php
-grep -i -r "include" --color=always -n --include \*.php
-grep -i -r "shell_exec" --color=always -n --include \*.php
-grep -i -r "unserialize" --color=always -n --include \*.php
-grep -i -r "exec" --color=always -n --include \*.php
+#!/bin/bash
+echo "############################################"
+echo "Grepping for some known PHP vulnerabilities:"
+echo "############################################"
+vulns=( 
+    "\$_GET" 
+    "\$_POST" 
+    "system"
+    "eval"
+    "regex"
+    "extract"
+    "assert"
+    "include"
+    "shell_exec"
+    "unserialize"
+    "exec"
+    "create_function")
+
+for vuln in "${vulns[@]}"
+do
+   grep -i -r "$vuln" --color=always -n --include \*.php
+   grep -i -r "$vuln" --color=always -n --include \*.inc
+done
