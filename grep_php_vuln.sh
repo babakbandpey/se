@@ -1,0 +1,11 @@
+grep -i -r "\$_GET" --color=always -n --include \*.php
+grep -i -r "\$_POST" --color=always -n --include \*.php
+grep -i -r "system" --color=always -n --include \*.php
+grep -i -r "eval" --color=always -n --include \*.php
+grep -i -r "regex" --color=always -n --include \*.php
+grep -i -r "extract" --color=always -n --include \*.php
+grep -i -r "assert" --color=always -n --include \*.php
+grep -i -r "include" --color=always -n --include \*.php
+grep -i -r "shell_exec" --color=always -n --include \*.php
+grep -i -r "unserialize" --color=always -n --include \*.php
+grep -i -r "exec" --color=always -n --include \*.php
