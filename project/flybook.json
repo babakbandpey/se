@@ -1,0 +1,1088 @@
+{
+  "summary": {
+    "title": "Flybook Threat Model",
+    "owner": "Group 7",
+    "description": "General threat model",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Jette",
+        "$$hashKey": "object:11"
+      }
+    ],
+    "diagrams": [
+      {
+        "title": "Flybook Data Flow",
+        "thumbnail": "./public/content/images/thumbnail.jpg",
+        "id": 0,
+        "diagramJson": {
+          "cells": [
+            {
+              "type": "tm.Store",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 720,
+                "y": 210
+              },
+              "angle": 0,
+              "id": "936557f9-22e2-4bac-bb70-0089c5c2fbe1",
+              "z": 2,
+              "isALog": false,
+              "threats": [
+                {
+                  "status": "Mitigated",
+                  "severity": "High",
+                  "description": "An attacker could make an query call on the DB,",
+                  "title": "Unauthorised access",
+                  "type": "Information disclosure",
+                  "mitigation": "Require all queries to be authenticated.",
+                  "$$hashKey": "object:62"
+                },
+                {
+                  "status": "Open",
+                  "severity": "Medium",
+                  "description": "An attacker could obtain the DB credentials ans use them to make unauthorised queries.",
+                  "title": "Credential theft",
+                  "type": "Information disclosure",
+                  "mitigation": "Use a firewall to restrict access to the DB to only the Background Worker IP address.",
+                  "$$hashKey": "object:63"
+                }
+              ],
+              "outOfScope": false,
+              "hasOpenThreats": true,
+              "description": "MySQL database contains five tables",
+              "storesCredentials": true,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "MySQL Database"
+                },
+                "#element-shape": {
+                  "class": ""
+                },
+                ".undefined": {
+                  "class": "undefinedhasOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 460,
+                "y": 170
+              },
+              "angle": 0,
+              "id": "0d9909ea-1398-4898-be81-cf1c808324dc",
+              "z": 6,
+              "privilegeLevel": "executionContext =Limited",
+              "outOfScope": false,
+              "hasOpenThreats": false,
+              "description": "API.php serves as a bridge between the static pages and the MySQL database",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "API.php"
+                },
+                "#element-process": {
+                  "class": "outOfScopeElement"
+                },
+                ".undefined": {
+                  "class": "undefinedhasNoOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 20,
+                "y": 120
+              },
+              "angle": 0,
+              "id": "b394f9f7-07ca-42bc-b616-ad77c6fbfcce",
+              "z": 7,
+              "threats": [],
+              "outOfScope": false,
+              "hasOpenThreats": false,
+              "description": "Landing page with login form.\nThis page performs API call to authenticate the user",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Browser index.html"
+                },
+                "#element-shape": {
+                  "class": ""
+                },
+                ".undefined": {
+                  "class": "undefinedhasNoOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 20,
+                "y": 250
+              },
+              "angle": 0,
+              "id": "19d32b62-b0fe-43e2-badd-fc52c91d6cba",
+              "z": 7,
+              "threats": [],
+              "outOfScope": false,
+              "hasOpenThreats": false,
+              "description": "After authentication the user is redirected to book.html for flight information search",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Browser book.html"
+                },
+                "#element-shape": {
+                  "class": ""
+                },
+                ".undefined": {
+                  "class": "undefinedhasNoOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 20,
+                "y": 380
+              },
+              "angle": 0,
+              "id": "f9cca376-6833-4e71-b66c-fe94c2f35b96",
+              "z": 7,
+              "threats": [],
+              "outOfScope": false,
+              "hasOpenThreats": false,
+              "description": "Webpage ask for the status of the server every 5 sendonds",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "status.html"
+                },
+                "#element-shape": {
+                  "class": ""
+                },
+                ".undefined": {
+                  "class": "undefinedhasNoOpenThreats isInScope"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Boundary",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 410,
+                "y": 550
+              },
+              "target": {
+                "x": 520,
+                "y": 30
+              },
+              "vertices": [
+                {
+                  "x": 360,
+                  "y": 220
+                }
+              ],
+              "id": "64d52ab0-9733-4ae9-af1b-a347cbc13186",
+              "z": 8,
+              "attrs": {}
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "b394f9f7-07ca-42bc-b616-ad77c6fbfcce"
+              },
+              "target": {
+                "id": "0d9909ea-1398-4898-be81-cf1c808324dc"
+              },
+              "vertices": [
+                {
+                  "x": 310,
+                  "y": 160
+                }
+              ],
+              "id": "56b56e8c-751d-4d8a-a9c7-6554c9f142ee",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.4395475187097602,
+                    "offset": -5.526201589851174
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "HTTP Request",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 10,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Data flow should use HTTP/S",
+                  "type": "Information disclosure",
+                  "description": "These requests are made over the public internet and could be intercepted by an attacker.",
+                  "mitigation": "The requests should require HTTP/S. This will provide confidentiality and integrity. HTTP should not be supported.",
+                  "$$hashKey": "object:263"
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "title": "Tampering with data MITM",
+                  "description": "The HTTP connection exposes the data to mitm attack",
+                  "mitigation": "Change to TLS",
+                  "$$hashKey": "object:363"
+                },
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Repudiation",
+                  "title": "Server identity is repudiable",
+                  "description": "The server can not be authenticated a the genuine source of data",
+                  "mitigation": "Digital Certificate / TLS",
+                  "$$hashKey": "object:369"
+                }
+              ],
+              "isPublicNetwork": true,
+              "isEncrypted": false,
+              "protocol": "HTTP/S",
+              "outOfScope": false,
+              "hasOpenThreats": true,
+              "description": "A GET request is with username and password are sent to the API.php",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "19d32b62-b0fe-43e2-badd-fc52c91d6cba"
+              },
+              "target": {
+                "id": "0d9909ea-1398-4898-be81-cf1c808324dc"
+              },
+              "id": "c0a1697e-df68-46fe-bb92-822fc06c190f",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.4395475187097602,
+                    "offset": -5.526201589851174
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "HTTP Request",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 10,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Data flow should use HTTP/S",
+                  "type": "Information disclosure",
+                  "description": "These requests are made over the public internet and could be intercepted by an attacker.",
+                  "mitigation": "The requests should require HTTP/S. This will provide confidentiality and integrity. HTTP should not be supported.",
+                  "$$hashKey": "object:263"
+                }
+              ],
+              "isPublicNetwork": true,
+              "isEncrypted": false,
+              "protocol": "HTTP/S",
+              "outOfScope": false,
+              "hasOpenThreats": true,
+              "description": "A GET request with search query for flight information is sent",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "f9cca376-6833-4e71-b66c-fe94c2f35b96"
+              },
+              "target": {
+                "id": "6287c924-49fc-4c70-8841-1f59882c056e"
+              },
+              "id": "606dbefa-df95-4fff-be30-e82fbe5bb33e",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.4395475187097602,
+                    "offset": -5.526201589851174
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "HTTP Request",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 10,
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Data flow should use HTTP/S",
+                  "type": "Information disclosure",
+                  "description": "These requests are made over the public internet and could be intercepted by an attacker.",
+                  "mitigation": "The requests should require HTTP/S. This will provide confidentiality and integrity. HTTP should not be supported.",
+                  "$$hashKey": "object:263"
+                }
+              ],
+              "isPublicNetwork": true,
+              "isEncrypted": false,
+              "protocol": "HTTP/S",
+              "outOfScope": false,
+              "hasOpenThreats": true,
+              "description": "A GET is sent to the HTTP server to check to server status",
+              "vertices": [
+                {
+                  "x": 340,
+                  "y": 390
+                }
+              ],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "0d9909ea-1398-4898-be81-cf1c808324dc"
+              },
+              "target": {
+                "id": "b394f9f7-07ca-42bc-b616-ad77c6fbfcce"
+              },
+              "vertices": [
+                {
+                  "x": 310,
+                  "y": 210
+                }
+              ],
+              "id": "1b1cf1eb-d9ac-463b-a9ae-d816c42e7107",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "HTTP Response",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 19,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTP/S",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Data flow should use HTTP/S",
+                  "type": "Information disclosure",
+                  "description": "These responses are over the public internet and could be intercepted by an attacker.",
+                  "mitigation": "The requests should require HTTP/S. This will provide confidentiality and integrity. HTTP should not be supported.",
+                  "$$hashKey": "object:232"
+                }
+              ],
+              "outOfScope": false,
+              "hasOpenThreats": true,
+              "description": "If the user is authenticated the user is redirected to book.html",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "0d9909ea-1398-4898-be81-cf1c808324dc"
+              },
+              "target": {
+                "id": "19d32b62-b0fe-43e2-badd-fc52c91d6cba"
+              },
+              "id": "3ff7cee7-3731-442d-8bc9-3f29a846d58d",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.32322896512689914,
+                    "offset": -32.14104415759878
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "HTTP Response",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 19,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTP/S",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Data flow should use HTTP/S",
+                  "type": "Information disclosure",
+                  "description": "These responses are over the public internet and could be intercepted by an attacker.",
+                  "mitigation": "The requests should require HTTP/S. This will provide confidentiality and integrity. HTTP should not be supported.",
+                  "$$hashKey": "object:232"
+                }
+              ],
+              "outOfScope": false,
+              "hasOpenThreats": true,
+              "description": "The search results are sent back to the user",
+              "vertices": [
+                {
+                  "x": 280,
+                  "y": 290
+                }
+              ],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "6287c924-49fc-4c70-8841-1f59882c056e"
+              },
+              "target": {
+                "id": "f9cca376-6833-4e71-b66c-fe94c2f35b96"
+              },
+              "id": "5d93672a-25a6-483a-a10f-081a03c1a65d",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.5728654000518926,
+                    "offset": -20.80564469586846
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "HTTP Response",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 19,
+              "isEncrypted": true,
+              "isPublicNetwork": true,
+              "protocol": "HTTP/S",
+              "threats": [
+                {
+                  "status": "Open",
+                  "severity": "High",
+                  "title": "Data flow should use HTTP/S",
+                  "type": "Information disclosure",
+                  "description": "These responses are over the public internet and could be intercepted by an attacker.",
+                  "mitigation": "The requests should require HTTP/S. This will provide confidentiality and integrity. HTTP should not be supported.",
+                  "$$hashKey": "object:232"
+                }
+              ],
+              "outOfScope": false,
+              "hasOpenThreats": true,
+              "description": "The CGI sends the server time back as response",
+              "vertices": [
+                {
+                  "x": 310,
+                  "y": 450
+                }
+              ],
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "936557f9-22e2-4bac-bb70-0089c5c2fbe1"
+              },
+              "target": {
+                "id": "0d9909ea-1398-4898-be81-cf1c808324dc"
+              },
+              "vertices": [
+                {
+                  "x": 640,
+                  "y": 190
+                }
+              ],
+              "id": "d117ddba-2508-45ce-b9ea-fb9df56a79e5",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.5328578871393476,
+                    "offset": 22.84591464314244
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "Query Results",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 23,
+              "hasOpenThreats": false,
+              "isEncrypted": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Boundary",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 800,
+                "y": 110
+              },
+              "target": {
+                "x": 790,
+                "y": 400
+              },
+              "vertices": [
+                {
+                  "x": 660,
+                  "y": 190
+                }
+              ],
+              "id": "f4252c6b-3af0-4ddf-b84d-fe653aa11ff0",
+              "z": 24,
+              "attrs": {}
+            },
+            {
+              "type": "tm.Store",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 450,
+                "y": 490
+              },
+              "angle": 0,
+              "id": "23992297-9679-44fa-b8b8-56384f252e0b",
+              "z": 27,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Web Server"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Process",
+              "size": {
+                "width": 100,
+                "height": 100
+              },
+              "position": {
+                "x": 500,
+                "y": 340
+              },
+              "angle": 0,
+              "id": "6287c924-49fc-4c70-8841-1f59882c056e",
+              "z": 28,
+              "hasOpenThreats": false,
+              "description": "A C++ application which checks the status of the connection to the server",
+              "privilegeLevel": "executionContext =Limited",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "status_check"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Store",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 750,
+                "y": 480
+              },
+              "angle": 0,
+              "id": "fb9dea52-bc02-4df7-8f68-d513222c4e53",
+              "z": 30,
+              "hasOpenThreats": false,
+              "description": "Underlying system is linux distro",
+              "isALog": false,
+              "storesCredentials": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Operative System"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Boundary",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "x": 820,
+                "y": 450
+              },
+              "target": {
+                "x": 740,
+                "y": 610
+              },
+              "vertices": [
+                {
+                  "x": 700,
+                  "y": 460
+                }
+              ],
+              "id": "3708b148-06e9-4369-85cf-f7d81464fbb7",
+              "z": 32,
+              "attrs": {}
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "6287c924-49fc-4c70-8841-1f59882c056e"
+              },
+              "target": {
+                "id": "fb9dea52-bc02-4df7-8f68-d513222c4e53"
+              },
+              "vertices": [
+                {
+                  "x": 670,
+                  "y": 400
+                }
+              ],
+              "id": "92d4dae0-162e-4343-a7b0-4d65fbea93d8",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "CGI Call",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 33,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "fb9dea52-bc02-4df7-8f68-d513222c4e53"
+              },
+              "target": {
+                "id": "6287c924-49fc-4c70-8841-1f59882c056e"
+              },
+              "vertices": [],
+              "id": "9cd321b5-bb95-41b2-81ee-82490d694a9e",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "CGI Response",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 34,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "0d9909ea-1398-4898-be81-cf1c808324dc"
+              },
+              "target": {
+                "id": "936557f9-22e2-4bac-bb70-0089c5c2fbe1"
+              },
+              "vertices": [
+                {
+                  "x": 640,
+                  "y": 260
+                }
+              ],
+              "id": "dae927c7-28ef-418c-b8d5-0958748c364f",
+              "labels": [
+                {
+                  "position": {
+                    "distance": 0.517785715146788,
+                    "offset": 16.214025018651025
+                  },
+                  "attrs": {
+                    "text": {
+                      "text": "SQL Query",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 35,
+              "hasOpenThreats": false,
+              "description": "Different SQL queries are sendt to the DB",
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Actor",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 20,
+                "y": 10
+              },
+              "angle": 0,
+              "id": "5a266dcd-15dd-4f21-9b5c-52ab727849c6",
+              "z": 36,
+              "hasOpenThreats": false,
+              "description": "A JAVA client",
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "JAVA Desktop Client"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "5a266dcd-15dd-4f21-9b5c-52ab727849c6"
+              },
+              "target": {
+                "id": "0d9909ea-1398-4898-be81-cf1c808324dc"
+              },
+              "vertices": [
+                {
+                  "x": 360,
+                  "y": 60
+                },
+                {
+                  "x": 440,
+                  "y": 120
+                }
+              ],
+              "id": "b00fd3a5-ca52-4433-afaa-eb0f31aac50f",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "HTTPS Request",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 37,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Flow",
+              "size": {
+                "width": 10,
+                "height": 10
+              },
+              "smooth": true,
+              "source": {
+                "id": "0d9909ea-1398-4898-be81-cf1c808324dc"
+              },
+              "target": {
+                "id": "5a266dcd-15dd-4f21-9b5c-52ab727849c6"
+              },
+              "vertices": [
+                {
+                  "x": 330,
+                  "y": 90
+                }
+              ],
+              "id": "757002a9-7659-47c2-bee0-77b77f887244",
+              "labels": [
+                {
+                  "position": 0.5,
+                  "attrs": {
+                    "text": {
+                      "text": "HTTPS Response",
+                      "font-weight": "400",
+                      "font-size": "small"
+                    }
+                  }
+                }
+              ],
+              "z": 38,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".marker-target": {
+                  "class": "marker-target hasNoOpenThreats isInScope"
+                },
+                ".connection": {
+                  "class": "connection hasNoOpenThreats isInScope"
+                }
+              }
+            },
+            {
+              "type": "tm.Store",
+              "size": {
+                "width": 160,
+                "height": 80
+              },
+              "position": {
+                "x": 30,
+                "y": 490
+              },
+              "angle": 0,
+              "id": "88bf11b1-a37e-4ce9-9add-600635596986",
+              "z": 39,
+              "hasOpenThreats": false,
+              "attrs": {
+                ".element-shape": {
+                  "class": "element-shape hasNoOpenThreats isInScope"
+                },
+                "text": {
+                  "text": "Client Side"
+                },
+                ".element-text": {
+                  "class": "element-text hasNoOpenThreats isInScope"
+                }
+              }
+            }
+          ]
+        },
+        "size": {
+          "height": 960,
+          "width": 910
+        },
+        "$$hashKey": "object:15"
+      }
+    ],
+    "reviewer": "Jette & Babak"
+  }
+}
